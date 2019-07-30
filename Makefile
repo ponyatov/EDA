@@ -1,9 +1,12 @@
-DOC = README.md doc/install.md doc/index.md doc/kicad.md
+DOC  = README.md doc/install.md doc/sw.md doc/make.md doc/index.md
+DOC += doc/kicad.md doc/lib.md
+DOC += doc/cortex.md doc/msp430.md
 
+.PHONY: docs dirs gz install
+
+docs: docs/index.html
 docs/index.html: $(DOC) Makefile
 	pandoc -f markdown -t html --toc -s -o $@ $(DOC)
-
-.PHONY: dirs gz install
 
 install: dirs
 
@@ -21,4 +24,3 @@ KICAD_GZ	= $(KICAD).tar.gz
 
 gz: $(GZ)
 	$(WGET) https://github.com/KiCad/kicad-source-mirror/archive/5.1.3.tar.gz
-

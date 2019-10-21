@@ -14,6 +14,4 @@ Some prerouted PCB modules widely used in hobby & profesional work.
 
 ### [Cortex-M]
 
-### [MSP430]
-
-## [Embedded Linux]
+### [Embedded Linux]

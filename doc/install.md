@@ -10,5 +10,5 @@ $ make install
 
 ```
 $ cd EDA
-$ make docs
+$ make doc
 ```

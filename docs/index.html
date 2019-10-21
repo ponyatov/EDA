@@ -1,23 +1,28 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
-<div id="TOC">
+<nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#eda">EDA</a><ul>
 <li><a href="#electronics-design-cad-library">Electronics Design CAD &amp; Library</a></li>
 </ul></li>
+<li><a href="#manual">Manual</a></li>
 <li><a href="#install">Install</a><ul>
-<li><a href="#software-packages">Software packages</a><ul>
-<li><a href="#kicad"><a href="#kicad-1">KiCAD</a></a></li>
-<li><a href="#lib"><a href="#lib-1">lib</a></a></li>
-</ul></li>
 <li><a href="#makefile-targets">Makefile targets</a><ul>
 <li><a href="#variables">variables</a></li>
 <li><a href="#doc"><code>doc</code></a></li>
@@ -25,44 +30,41 @@
 <li><a href="#gz"><code>gz</code></a></li>
 <li><a href="#install-1"><code>install</code></a></li>
 </ul></li>
+<li><a href="#software-packages">Software packages</a><ul>
+<li><a href="#kicad"><span>KiCAD</span></a></li>
+<li><a href="#freecad"><span>FreeCAD</span></a></li>
+<li><a href="#lib"><span>lib</span></a></li>
 </ul></li>
-<li><a href="#manual">Manual</a></li>
+</ul></li>
 <li><a href="#kicad-1">KiCAD</a></li>
+<li><a href="#freecad-1">FreeCAD</a></li>
 <li><a href="#lib-1">lib</a><ul>
 <li><a href="#component-library">Component library</a></li>
 <li><a href="#samples-modules">Samples &amp; Modules</a></li>
 <li><a href="#software-sdk">Software SDK</a><ul>
-<li><a href="#cortex-m"><a href="#cortex-m-1">Cortex-M</a></a></li>
-<li><a href="#msp430"><a href="#msp430-1">MSP430</a></a></li>
+<li><a href="#cortex-m"><span>Cortex-M</span></a></li>
+<li><a href="#embedded-linux"><span>Embedded Linux</span></a></li>
 </ul></li>
-<li><a href="#embedded-linux"><a href="#embedded-linux-1">Embedded Linux</a></a></li>
 </ul></li>
 <li><a href="#cortex-m-1">Cortex-M</a><ul>
 <li><a href="#stm32-toolchain-libs">STM32 toolchain &amp; libs</a></li>
 </ul></li>
-<li><a href="#msp430-1">MSP430</a></li>
 <li><a href="#embedded-linux-1">Embedded Linux</a></li>
 </ul>
-</div>
+</nav>
 <h1 id="eda">EDA</h1>
 <h2 id="electronics-design-cad-library">Electronics Design CAD &amp; Library</h2>
-<p>(c) Dmitry Ponyatov &lt;<a href="mailto:dponyatov@gmail.com">dponyatov@gmail.com</a>&gt; CC BY-NC-ND</p>
-<p>github: <a href="https://github.com/ponyatov/EDA/" class="uri">https://github.com/ponyatov/EDA/</a></p>
-<p>manual: <a href="https://ponyatov.github.io/EDA/" class="uri">https://ponyatov.github.io/EDA/</a></p>
+<p>(c) Dmitry Ponyatov &lt;<a href="mailto:dponyatov@gmail.com" class="email">dponyatov@gmail.com</a>&gt; CC BY-NC-ND</p>
+<p>github: <a href="https://github.com/ponyatov/EDA" class="uri">https://github.com/ponyatov/EDA</a></p>
+<p>manual: <a href="https://ponyatov.github.io/EDA" class="uri">https://ponyatov.github.io/EDA</a></p>
+<h1 id="manual">Manual</h1>
 <h1 id="install">Install</h1>
 <pre><code>$ git clone -o gh https://github.com/ponyatov/EDA
 $ cd EDA
 $ make install</code></pre>
 <h4 id="optional-rebuild-docs">optional: rebuild <code>docs/</code></h4>
 <pre><code>$ cd EDA
-$ make docs</code></pre>
-<h2 id="software-packages">Software packages</h2>
-<p>Software packages included in source-build distribution:</p>
-<h3 id="kicad"><a href="#kicad-1">KiCAD</a></h3>
-<p>KiCAD is an Open Source electronics design CAD is well suited for offline PCB design on Linux workstation.</p>
-<p>This project does not provide build scripts to run it on Windows, as this system is an unsuitable platform for the developer. Look first on the minimal M$ SDK install requires gigabytes of downloads, and this idiotic OS still has no package manager after more than 20 years of its history.</p>
-<h3 id="lib"><a href="#lib-1">lib</a></h3>
-<p>Some additional resources included for making your run off the shelf.</p>
+$ make doc</code></pre>
 <h2 id="makefile-targets">Makefile targets</h2>
 <h3 id="variables">variables</h3>
 <h4 id="cwd-current-directory"><code>CWD</code> current directory</h4>
@@ -78,8 +80,18 @@ $ make docs</code></pre>
 <h3 id="dirs"><code>dirs</code></h3>
 <h3 id="gz"><code>gz</code></h3>
 <h3 id="install-1"><code>install</code></h3>
-<h1 id="manual">Manual</h1>
+<h2 id="software-packages">Software packages</h2>
+<p>Software packages included in source-build distribution:</p>
+<h3 id="kicad"><a href="#kicad-1">KiCAD</a></h3>
+<p>KiCAD is an Open Source electronics design CAD is well suited for offline PCB design on Linux workstation.</p>
+<p>This project does not provide build scripts to run it on Windows, as this system is an unsuitable platform for the developer. Look first on the minimal M$ SDK install requires gigabytes of downloads, and this idiotic OS still has no package manager after more than 20 years of its history.</p>
+<h3 id="freecad"><a href="#freecad-1">FreeCAD</a></h3>
+<p>Mechanical and construction design</p>
+<h3 id="lib"><a href="#lib-1">lib</a></h3>
+<p>Some additional resources included for making your run off the shelf.</p>
 <h1 id="kicad-1">KiCAD</h1>
+<h1 id="freecad-1">FreeCAD</h1>
+<p>Mechanical and electronics construction design</p>
 <h1 id="lib-1">lib</h1>
 <p>Some additional resources included for making your run off the shelf.</p>
 <h2 id="component-library">Component library</h2>
@@ -88,11 +100,9 @@ $ make docs</code></pre>
 <p>Some prerouted PCB modules widely used in hobby &amp; profesional work.</p>
 <h2 id="software-sdk">Software SDK</h2>
 <h3 id="cortex-m"><a href="#cortex-m-1">Cortex-M</a></h3>
-<h3 id="msp430"><a href="#msp430-1">MSP430</a></h3>
-<h2 id="embedded-linux"><a href="#embedded-linux-1">Embedded Linux</a></h2>
+<h3 id="embedded-linux"><a href="#embedded-linux-1">Embedded Linux</a></h3>
 <h1 id="cortex-m-1">Cortex-M</h1>
 <h2 id="stm32-toolchain-libs">STM32 toolchain &amp; libs</h2>
-<h1 id="msp430-1">MSP430</h1>
 <h1 id="embedded-linux-1">Embedded Linux</h1>
 </body>
 </html>

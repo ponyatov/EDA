@@ -22,12 +22,11 @@ PROC_NUM ?= $(shell grep processor /proc/cpuinfo|wc -l)
 
 CFG_ALL  = -G"Unix Makefiles" -DMULTITHREADED_BUILD=$(PROC_NUM)
 # -DCMAKE_VERBOSE_MAKEFILE=ON
-CFG_ALL += DCMAKE_INSTALL_PREFIX=$(CWD)/_install -DCMAKE_BUILD_TYPE=Release
+CFG_ALL += -DCMAKE_INSTALL_PREFIX=$(CWD)/_install -DCMAKE_BUILD_TYPE=Release
 
-CFG_KICAD  = $(CFG_ALL)
+CFG_KICAD  = $(CFG_ALL) -DKICAD_SKIP_BOOST=ON 
 CFG_KICAD += -DKICAD_SPICE=OFF -DKICAD_USE_OCE=OFF
-CFG_KICAD += -DKICAD_SCRIPTING=OFF
-# -DKICAD_SCRIPTING_WXPYTHON=OFF
+CFG_KICAD += -DKICAD_SCRIPTING=ON -DKICAD_SCRIPTING_MODULES=ON -DKICAD_SCRIPTING_WXPYTHON=ON
 
 kicad: $(SRC)/$(KICAD)/README
 	rm -rf $(BUILD)/$(KICAD) ; mkdir $(BUILD)/$(KICAD) ; cd $(BUILD)/$(KICAD) ;\
@@ -47,3 +46,7 @@ DOC += doc/cortex.md doc/linux.md
 doc: docs/index.html
 docs/index.html: $(DOC) Makefile
 	pandoc -f markdown -t html --toc -s -o $@ $(DOC)
+
+.PHONY: deb
+deb:
+	sudo apt install -u python-wxgtk3.0-dev
